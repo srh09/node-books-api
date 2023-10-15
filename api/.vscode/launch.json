@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug books-api",
+        "type": "node",
+        "request": "launch",
+        "runtimeArgs": ["--loader", "ts-node/esm", "--require", "tsconfig-paths/register"],
+        "args": ["${workspaceFolder}/src/app.ts"],
+        "sourceMaps": true,
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "restart": true,
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "preLaunchTask": "tsc: build - tsconfig.json",
+        "smartStep": true,
+        "showAsyncStacks": true
+      }
+    ]
+  }

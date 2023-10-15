@@ -1,4 +1,6 @@
+import './config.js';
 import express from 'express';
+
 import routes from './routes/index.js';
 
 console.log('Starting Server-----');
