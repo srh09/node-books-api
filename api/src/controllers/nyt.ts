@@ -1,7 +1,8 @@
+import { Request, Response } from 'express';
 import { Books, BooksRes, Category, CategoryRes } from '../models/nyt.js';
 import { nytHttp } from '../services/http.js';
 
-export const getBooksByCategoryName = async (req, res) => {
+export const getBooksByCategoryName = async (req: Request, res: Response) => {
   const categoryName: string = req.params.categoryName;
   console.log('getting books-----');
   const response = await nytHttp.get(`/lists.json?list=${categoryName}`);
@@ -9,7 +10,7 @@ export const getBooksByCategoryName = async (req, res) => {
   res.send(books);
 };
 
-export const getCategoryNames = async (req, res) => {
+export const getCategoryNames = async (req: Request, res: Response) => {
   console.log('getting list names------');
   const response = await nytHttp.get('/lists/names.json');
   const categories = mapCategoryResToCategories(response.data.results);

@@ -1,3 +1,9 @@
+# Generated files.
 node_modules
 dist
+
+# Private env variables.
 .env
+
+# Local Database.  Is Automatically generated on App init.
+storage.db
