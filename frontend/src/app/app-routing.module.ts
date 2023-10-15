@@ -4,6 +4,7 @@ import { ShellComponent } from './components/shell/shell.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { BooksComponent } from './components/books/books.component';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'books', component: BooksComponent },
+      { path: 'books/:isbn', component: BookDetailComponent },
     ],
   },
 ];

@@ -38,11 +38,13 @@ export interface BooksRes {
   published_date: string;
   rank: number;
   amazon_product_url: string;
-  book_details: {
-    title: string;
-    description: string;
-    author: string;
-    price: string;
-    primary_isbn13: string;
-  };
+  book_details: [
+    {
+      title: string;
+      description: string;
+      author: string;
+      price: string;
+      primary_isbn13: string;
+    }
+  ];
 }

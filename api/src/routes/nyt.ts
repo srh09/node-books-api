@@ -1,8 +1,8 @@
 import express from 'express';
-import { getBooksByListName, getCategoryNames } from '../controllers/nyt.js';
+import { getBooksByCategoryName, getCategoryNames } from '../controllers/nyt.js';
 
 const router = express.Router();
-router.get('/books/:listName', getBooksByListName);
-router.get('/list-names', getCategoryNames);
+router.get('/books/:categoryName', getBooksByCategoryName);
+router.get('/category-names', getCategoryNames);
 
 export default router;

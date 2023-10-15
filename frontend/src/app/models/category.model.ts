@@ -7,7 +7,7 @@ export interface Category {
   updated: string;
 }
 
-export interface Books {
+export interface Book {
   listName: string;
   displayName: string;
   bestsellersDate: string;

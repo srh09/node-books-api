@@ -1,10 +1,10 @@
 import { Books, BooksRes, Category, CategoryRes } from '../models/nyt.js';
 import { nytHttp } from '../services/http.js';
 
-export const getBooksByListName = async (req, res) => {
-  const listName: string = req.params.listName;
+export const getBooksByCategoryName = async (req, res) => {
+  const categoryName: string = req.params.categoryName;
   console.log('getting books-----');
-  const response = await nytHttp.get(`/lists.json?list=${listName}`);
+  const response = await nytHttp.get(`/lists.json?list=${categoryName}`);
   const books = mapBooksResToBooks(response.data.results);
   res.send(books);
 };
@@ -39,11 +39,11 @@ const mapBooksResToBooks = (resList: BooksRes[]): Books[] => {
       rank: res.rank,
       amazonProductUrl: res.amazon_product_url,
 
-      title: res.book_details.title,
-      description: res.book_details.description,
-      author: res.book_details.author,
-      price: res.book_details.price,
-      isbn: res.book_details.primary_isbn13,
+      title: res.book_details[0].title,
+      description: res.book_details[0].description,
+      author: res.book_details[0].author,
+      price: res.book_details[0].price,
+      isbn: res.book_details[0].primary_isbn13,
     };
   });
 };

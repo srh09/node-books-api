@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    background-color: white;
+    width: 500px;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 16px;
+
+    button {
+      margin: 0;
+    }
+  }
+}

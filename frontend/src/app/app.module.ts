@@ -14,6 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,9 +23,10 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { BooksComponent } from './components/books/books.component';
 import { ShellComponent } from './components/shell/shell.component';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, BooksComponent, ShellComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, BooksComponent, ShellComponent, BookDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,6 +43,8 @@ import { ShellComponent } from './components/shell/shell.component';
     MatTableModule,
     MatBadgeModule,
     MatSnackBarModule,
+    MatChipsModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

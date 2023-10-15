@@ -1,0 +1,28 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: white;
+  width: 500px;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 16px;
+
+  button {
+    width: 100px;
+    margin: 0 0 16px 0;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: row;
+
+    label {
+      flex: 0 0 100px;
+    }
+
+    p {
+      flex: 1;
+    }
+  }
+}

@@ -1,1 +1,32 @@
-<p>books works!</p>
+<div class="container">
+  <div class="card">
+    <mat-chip-listbox>
+      <mat-chip-option *ngFor="let category of categories$ | async" (click)="onSelectCategory(category)">{{
+        category.displayName
+      }}</mat-chip-option>
+    </mat-chip-listbox>
+  </div>
+  <ng-container *ngIf="books$ | async as books">
+    <div class="card" *ngIf="books.length > 0; else noBooks">
+      <mat-nav-list>
+        <mat-list-item *ngFor="let book of books">
+          <a matListItemTitle>{{ book.title }}</a>
+          <button mat-icon-button (click)="onSelectBook(book)" matListItemMeta>
+            <mat-icon>info</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onSelectBook(book)" matListItemMeta>
+            <mat-icon>rate_review</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onSelectBook(book)" matListItemMeta>
+            <mat-icon>message</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </ng-container>
+  <ng-template #noBooks>
+    <div class="card">
+      <div>No books available.</div>
+    </div>
+  </ng-template>
+</div>
