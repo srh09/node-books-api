@@ -1,10 +1,10 @@
 import express from 'express';
-import usersRoutes from './users.js';
+import authRoutes from './auth.js';
 import nytRoutes from './nyt.js';
 import reviewsRoutes from './review.js';
 
 const router = express.Router();
-router.use('/users', usersRoutes);
+router.use('/auth', authRoutes);
 router.use('/nyt', nytRoutes);
 router.use('/reviews', reviewsRoutes);
 
