@@ -1,4 +1,10 @@
 <div class="card">
+  <ng-container *ngIf="user$ | async as user">
+    <h3>Hello {{ user.username }}!</h3>
+  </ng-container>
   <h3>Welcome to the Official NYT Book Review and Comment Club!</h3>
-  <p>We have many books to review and comment on so head on over to the books tab to begin your journey.</p>
+  <p>
+    We have many books to review and comment on so head on over to the books tab to begin
+    your journey.
+  </p>
 </div>

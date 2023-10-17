@@ -1,9 +1,11 @@
 <div class="container">
   <div class="card">
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let category of categories$ | async" (click)="onSelectCategory(category)">{{
-        category.displayName
-      }}</mat-chip-option>
+      <mat-chip-option
+        *ngFor="let category of categories$ | async"
+        (click)="onSelectCategory(category)"
+        >{{ category.displayName }}</mat-chip-option
+      >
     </mat-chip-listbox>
   </div>
   <ng-container *ngIf="books$ | async as books">
@@ -26,7 +28,14 @@
   </ng-container>
   <ng-template #noBooks>
     <div class="card">
-      <div>No books available.</div>
+      <div class="no-books">
+        <p>No category selected.</p>
+        <p>
+          Search the NYT Books API by selecting one of their currently listed categories
+          (chips on the left side). Once selected you can give a book a personal rating or
+          make a comment about it on our in house forums!
+        </p>
+      </div>
     </div>
   </ng-template>
 </div>

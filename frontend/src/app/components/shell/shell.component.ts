@@ -20,7 +20,7 @@ export class ShellComponent implements OnInit, OnDestroy {
       this.user = user;
       console.log(user);
       if (user) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/books']);
       } else {
         this.router.navigate(['/login']);
       }

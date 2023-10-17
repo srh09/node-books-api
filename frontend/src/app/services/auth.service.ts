@@ -10,7 +10,10 @@ const BASE_URL = 'http://localhost:3000';
   providedIn: 'root',
 })
 export class AuthService {
-  private _user$ = new BehaviorSubject<User | null>(null);
+  private _user$ = new BehaviorSubject<User | null>({
+    id: 2,
+    username: 'Reid',
+  });
 
   readonly user$: Observable<User | null> = this._user$.asObservable();
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NytService } from '../../services/nyt.service';
-import { Category } from 'src/app/models/nyt.model';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/auth.model';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +10,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  categories$!: Observable<Category[]>;
+  user$!: Observable<User | null>;
 
-  constructor(private nytService: NytService) {}
+  constructor(private auth: AuthService) {}
 
   ngOnInit(): void {
-    console.log('on init here-----');
-    this.categories$ = this.nytService.categories$;
+    this.user$ = this.auth.user$;
   }
 }
