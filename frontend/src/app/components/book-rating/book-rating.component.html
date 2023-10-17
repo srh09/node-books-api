@@ -1,0 +1,18 @@
+<div class="card" *ngIf="book">
+  <button class="back" mat-raised-button color="primary" (click)="onBack()">Back</button>
+  <h2>Book Rating</h2>
+  <p *ngIf="book">Title: {{ book.title }}</p>
+  <p *ngIf="isRated">You previously rated {{ book.title }} a: {{ rating }}</p>
+  <p *ngIf="!isRated">This has not yet been rated.</p>
+  <div class="icons">
+    <div class="ratings">
+      <ng-container *ngFor="let star of stars; let i = index">
+        <mat-icon *ngIf="i < rating" (click)="onRate(i + 1)">star</mat-icon>
+        <mat-icon *ngIf="i >= rating" (click)="onRate(i + 1)">star_border</mat-icon>
+      </ng-container>
+    </div>
+    <button class="delete" mat-icon-button *ngIf="isRated" (click)="onDelete()">
+      <mat-icon class="delete-icon">clear</mat-icon>
+    </button>
+  </div>
+</div>

@@ -21,9 +21,11 @@ import { LoginComponent } from './components/login/login.component';
 import { BooksComponent } from './components/books/books.component';
 import { ShellComponent } from './components/shell/shell.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { BookRatingComponent } from './components/book-rating/book-rating.component';
+import { BookCommentsComponent } from './components/book-comments/book-comments.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, BooksComponent, ShellComponent, BookDetailComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, BooksComponent, ShellComponent, BookDetailComponent, BookRatingComponent, BookCommentsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

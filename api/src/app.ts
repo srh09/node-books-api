@@ -2,6 +2,7 @@ import './config.js';
 import cors from 'cors';
 import express from 'express';
 import session from 'express-session';
+import cookieParser from 'cookie-parser';
 
 import routes from './routes/index.js';
 import { isAuthenticated } from './controllers/auth.js';
@@ -13,6 +14,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 app.use(
   session({
     secret: process.env.SESSION_SECRET,

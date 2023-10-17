@@ -1,0 +1,45 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: white;
+  width: 500px;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 16px;
+
+  .icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .delete {
+      background-color: red;
+      border-radius: 16px;
+      margin-left: 16px;
+
+      mat-icon {
+        color: white;
+      }
+    }
+
+    .ratings {
+      display: flex;
+      flex-direction: row;
+      background-color: black;
+      border-radius: 16px;
+      padding: 16px;
+
+      mat-icon {
+        font-size: 24px;
+        color: #ffd700;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .back {
+    width: 100px;
+    margin: 0 0 16px 0;
+  }
+}

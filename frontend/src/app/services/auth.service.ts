@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subscription, catchError, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
 import { User } from '../models/auth.model';
 import { HttpClient } from '@angular/common/http';
 import { AlertService } from './alert.service';
@@ -11,10 +11,13 @@ const BASE_URL = 'http://localhost:3000';
 })
 export class AuthService {
   private _user$ = new BehaviorSubject<User | null>({
-    id: 2,
+    id: 1,
     username: 'Reid',
   });
 
+  get user(): User | null {
+    return this._user$.value;
+  }
   readonly user$: Observable<User | null> = this._user$.asObservable();
 
   constructor(private http: HttpClient, private alert: AlertService) {}

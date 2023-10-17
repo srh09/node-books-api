@@ -31,8 +31,6 @@ export class BooksComponent implements OnInit {
     }
     this.activeCategoryName = category.listNameEncoded;
     this.nytService.getBooksByCategoryName(category.listNameEncoded);
-    console.log('selectedCategory----');
-    console.log(category);
   }
 
   onSelectBook(book: Book) {
@@ -41,7 +39,24 @@ export class BooksComponent implements OnInit {
         book: book,
       },
     };
-    this.router.navigate(['/books', book.isbn], navExtras);
-    console.log('book selected------');
+    this.router.navigate(['/books/detail', book.isbn], navExtras);
+  }
+
+  onRateBook(book: Book) {
+    const navExtras: NavigationExtras = {
+      state: {
+        book: book,
+      },
+    };
+    this.router.navigate(['/books/rating', book.isbn], navExtras);
+  }
+
+  onCommentBook(book: Book) {
+    const navExtras: NavigationExtras = {
+      state: {
+        book: book,
+      },
+    };
+    this.router.navigate(['/books/comments', book.isbn], navExtras);
   }
 }

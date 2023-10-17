@@ -15,7 +15,7 @@ db.exec(`
     CREATE TABLE IF NOT EXISTS ratings (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       isbn TEXT,
-      name TEXT,
+      userId INTEGER,
       rating INTEGER
     )
   `);

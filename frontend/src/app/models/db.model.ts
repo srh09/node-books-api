@@ -8,6 +8,6 @@ export interface Review {
 export interface Rating {
   id?: number;
   isbn: string;
-  userId: string;
+  userId: number;
   rating: number;
 }
