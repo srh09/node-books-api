@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subscription, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, catchError, tap } from 'rxjs';
 
-import { Book, Category } from '../models/category.model';
+import { Book, Category } from '../models/nyt.model';
+import { AlertService } from './alert.service';
 
 const BASE_URL = 'http://localhost:3000';
 
@@ -16,7 +17,7 @@ export class NytService {
   readonly categories$: Observable<Category[]> = this._categories$.asObservable();
   readonly books$: Observable<Book[]> = this._books$.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private alert: AlertService) {
     console.log('init the service-----');
     this.initCategories();
   }
@@ -24,8 +25,8 @@ export class NytService {
   getBooksByCategoryName(categoryName: string) {
     return this.http
       .get<Book[]>(`${BASE_URL}/nyt/books/${categoryName}`)
-      .pipe(tap((books) => this._books$.next(books)))
-      .subscribe();
+      .pipe(catchError((err) => this.alert.handleError(err)))
+      .subscribe((books) => this._books$.next(books));
   }
 
   clearBooks() {
@@ -35,7 +36,7 @@ export class NytService {
   private initCategories(): Subscription {
     return this.http
       .get<Category[]>(`${BASE_URL}/nyt/category-names`)
-      .pipe(tap((categories) => this._categories$.next(categories)))
-      .subscribe();
+      .pipe(catchError((err) => this.alert.handleError(err)))
+      .subscribe((categories) => this._categories$.next(categories));
   }
 }

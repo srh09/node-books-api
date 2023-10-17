@@ -1,0 +1,17 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 200px;
+  background-color: white;
+  width: 500px;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 16px;
+
+  a {
+    cursor: pointer;
+    color: blue;
+    font-weight: 700;
+  }
+}

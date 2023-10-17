@@ -27,7 +27,7 @@ export const login = (req, res: Response, next: NextFunction) => {
     userId: storedUser.id,
     username: storedUser.username,
   };
-  res.json({ message: 'Login successful.' });
+  res.json({ id: storedUser.id, username: storedUser.username });
 };
 
 export const logout = (req, res: Response, next: NextFunction) => {

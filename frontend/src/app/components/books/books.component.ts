@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Book, Category } from 'src/app/models/category.model';
+import { Book, Category } from 'src/app/models/nyt.model';
 import { NytService } from 'src/app/services/nyt.service';
 
 @Component({
@@ -9,9 +9,9 @@ import { NytService } from 'src/app/services/nyt.service';
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.scss'],
 })
-export class BooksComponent {
-  categories$ = new Observable<Category[]>();
-  books$ = new Observable<Book[]>();
+export class BooksComponent implements OnInit {
+  categories$!: Observable<Category[]>;
+  books$!: Observable<Book[]>;
 
   activeCategoryName: string | null = null;
 
