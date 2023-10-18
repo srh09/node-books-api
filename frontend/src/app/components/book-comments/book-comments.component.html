@@ -1,4 +1,43 @@
 <div class="card" *ngIf="book">
   <button mat-raised-button color="primary" (click)="onBack()">Back</button>
-  <h2>Book Comments</h2>
+  <h2>Reviews:</h2>
+
+  <mat-form-field>
+    <textarea
+      matInput
+      placeholder="Write your review here"
+      rows="5"
+      [(ngModel)]="text"
+    ></textarea>
+  </mat-form-field>
+
+  <div class="lower">
+    <button mat-raised-button color="accent" (click)="onSubmitReview()">Submit</button>
+  </div>
+</div>
+<div class="card" *ngIf="reviews$ | async as reviews">
+  <ng-container *ngIf="reviews.length > 0; else noReviewsTemplate">
+    <div class="review" *ngFor="let review of reviews">
+      <p>
+        Written by User #{{ review.userId }} at
+        {{ review.time | date : 'MMM d, y, h:mm:ss a' }}
+      </p>
+      <div class="row">
+        <mat-form-field>
+          <textarea matInput [value]="review.text" rows="4"></textarea>
+        </mat-form-field>
+        <div class="tools">
+          <button mat-raised-button color="primary" (click)="onEditReview(review)">
+            Edit
+          </button>
+          <button mat-raised-button color="warn" (click)="onDeleteReview(review)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #noReviewsTemplate>
+    <p>No reviews available.</p>
+  </ng-template>
 </div>

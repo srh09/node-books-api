@@ -1,7 +1,8 @@
 export interface Review {
   id?: number;
   isbn: string;
-  name: string;
+  userId: number;
+  time: string;
   text: string;
 }
 

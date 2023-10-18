@@ -39,7 +39,6 @@ export const upsertRating = (req: Request, res: Response) => {
     );
   }
 
-  // Send OK response
   res.json({ message: 'Rating upserted.' });
 };
 

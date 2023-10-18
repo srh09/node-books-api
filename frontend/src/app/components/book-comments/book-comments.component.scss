@@ -10,6 +10,34 @@
 
   button {
     width: 100px;
-    margin: 0 0 16px 0;
+  }
+
+  .lower {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .review {
+    display: flex;
+    flex-direction: column;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex: 1;
+
+      mat-form-field {
+        flex: 1;
+        margin-right: 16px;
+      }
+
+      .tools {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
   }
 }
