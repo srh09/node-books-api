@@ -28,8 +28,6 @@ export class BookRatingComponent {
       this.db
         .getRatingsByISBNAndUserID(history.state.book.isbn, this.auth.user!.id)
         .subscribe((rating) => {
-          console.log('the rating is here----');
-          console.log(rating);
           if (rating) {
             this.rating = rating.rating;
             this.isRated = true;
@@ -40,8 +38,6 @@ export class BookRatingComponent {
 
   onRate(rating: number) {
     this.rating = rating;
-    console.log('rated------');
-    console.log(rating);
     this.db
       .createOrUpdateRating({
         isbn: this.book.isbn,

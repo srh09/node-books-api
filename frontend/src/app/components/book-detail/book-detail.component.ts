@@ -16,7 +16,6 @@ export class BookDetailComponent implements OnInit {
     this.route.paramMap.subscribe(() => {
       this.book = history.state.book;
     });
-    console.log('book detail-----');
   }
 
   onBack() {

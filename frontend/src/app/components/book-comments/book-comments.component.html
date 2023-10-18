@@ -24,10 +24,14 @@
       </p>
       <div class="row">
         <mat-form-field>
-          <textarea matInput [value]="review.text" rows="4"></textarea>
+          <textarea matInput [value]="review.text" rows="4" #textArea></textarea>
         </mat-form-field>
         <div class="tools">
-          <button mat-raised-button color="primary" (click)="onEditReview(review)">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="onEditReview(review, textArea.value)"
+          >
             Edit
           </button>
           <button mat-raised-button color="warn" (click)="onDeleteReview(review)">

@@ -10,10 +10,7 @@ const BASE_URL = 'http://localhost:3000';
   providedIn: 'root',
 })
 export class AuthService {
-  private _user$ = new BehaviorSubject<User | null>({
-    id: 1,
-    username: 'Reid',
-  });
+  private _user$ = new BehaviorSubject<User | null>(null);
 
   get user(): User | null {
     return this._user$.value;

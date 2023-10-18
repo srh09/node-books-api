@@ -4,7 +4,6 @@ import bcrypt from 'bcrypt';
 import db from '../db/db.js';
 
 export const register = (req: Request, res: Response) => {
-  console.log('registering-------');
   const { username, password } = req.body;
   const hashedPassword = bcrypt.hashSync(password, 10);
   const insertUser = db.prepare('INSERT INTO users (username, password) VALUES (?, ?)');
@@ -15,9 +14,6 @@ export const register = (req: Request, res: Response) => {
 export const login = (req, res: Response, next: NextFunction) => {
   const { username, password } = req.body;
   const storedUser = db.prepare('SELECT * FROM users WHERE username = ?').get(username);
-  console.log('login user-----');
-  console.log(storedUser);
-  console.log(username);
   const isValid = storedUser && bcrypt.compareSync(password, storedUser.password);
   if (!isValid) {
     return res.status(401).json({ message: 'Invalid credentials.' });

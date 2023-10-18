@@ -18,7 +18,6 @@ export class BooksComponent implements OnInit {
   constructor(private router: Router, private nytService: NytService) {}
 
   ngOnInit(): void {
-    console.log('on init here-----');
     this.categories$ = this.nytService.categories$;
     this.books$ = this.nytService.books$;
   }

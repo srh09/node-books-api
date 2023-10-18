@@ -18,7 +18,6 @@ export class ShellComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.auth.user$.subscribe((user) => {
       this.user = user;
-      console.log(user);
       if (user) {
         this.router.navigate(['/books']);
       } else {

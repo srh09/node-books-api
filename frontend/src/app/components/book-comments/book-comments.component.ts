@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 import { Review } from 'src/app/models/db.model';
 import { Book } from 'src/app/models/nyt.model';
 import { AlertService } from 'src/app/services/alert.service';
@@ -36,12 +36,9 @@ export class BookCommentsComponent {
         switchMap(() => this.db.getReviewsByISBN(this.book!.isbn))
       )
       .subscribe();
-    console.log('book detail-----');
   }
 
   onSubmitReview() {
-    console.log('review submitted-----');
-    console.log(this.text);
     const review: Review = {
       isbn: this.book!.isbn,
       userId: this.auth.user!.id,
@@ -54,15 +51,13 @@ export class BookCommentsComponent {
     });
   }
 
-  onEditReview(review: Review) {
-    console.log('I got edited------');
-    console.log(review);
+  onEditReview(review: Review, text: string) {
+    review.text = text;
     this.db.updateReviewById(review).subscribe();
   }
 
   onDeleteReview(review: Review) {
     this.db.deleteReviewById(review).subscribe();
-    console.log('I got deleted-----');
   }
 
   onBack() {

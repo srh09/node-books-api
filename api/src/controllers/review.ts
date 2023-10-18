@@ -4,15 +4,11 @@ import db from '../db/db.js';
 export const getReviewsByIsbn = (req: Request, res: Response) => {
   const isbn = req.params.isbn;
   const reviews = db.prepare('SELECT * FROM reviews WHERE isbn = ?').all(isbn);
-  console.log('get reviews-----');
-  console.log(reviews);
   res.json(reviews);
 };
 
 export const createReview = (req: Request, res: Response) => {
   const { isbn, userId, time, text } = req.body;
-  console.log('create review------');
-  console.log(req.body);
   const stmt = db.prepare(`
     INSERT INTO reviews (isbn, userId, time, text) 
     VALUES (?, ?, ?, ?)

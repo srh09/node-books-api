@@ -18,7 +18,6 @@ export class NytService {
   readonly books$: Observable<Book[]> = this._books$.asObservable();
 
   constructor(private http: HttpClient, private alert: AlertService) {
-    console.log('init the service-----');
     this.initCategories();
   }
 
